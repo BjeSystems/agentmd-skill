@@ -1,4 +1,6 @@
-# AgentMD Skill
+# AgentMD Skill (Canonical Repository)
+
+> Official bootstrap skill for AGENTS.md environments.
 
 Universal bootstrap system for agent behavior contracts. Drop-in capability for any repository.
 
@@ -17,24 +19,25 @@ AgentMD provides two powerful commands for managing agent behavior in your proje
 - **Safe Merging** — Append-only updates, never overwrites your edits
 - **Git Integrated** — Automatic commits with descriptive messages
 
-## Quick Start
+## Installation
 
-### 1. Clone Repository
+### Official Method
 
 ```bash
-git clone https://github.com/<username>/agentmd-skill.git
+# Clone repository
+git clone https://github.com/BjeSystems/agentmd-skill.git
 cd agentmd-skill
-```
 
-### 2. Import as Cursor Skill
-
-```bash
-# Copy to Cursor skills directory
+# Install as Cursor skill
 mkdir -p ~/.cursor/skills/agentmd
 cp -r skill/* ~/.cursor/skills/agentmd/
+
+# Verify installation
+ls ~/.cursor/skills/agentmd/
+# Output: agentmd.skill  analyzers/  commands/  rules/  templates/
 ```
 
-### 3. Use in Any Project
+### Use in Any Project
 
 ```bash
 cd /path/to/your-project
@@ -45,6 +48,8 @@ cd /path/to/your-project
 # Later: analyze and update rules
 /AgentCheck
 ```
+
+See [INSTALL.md](INSTALL.md) for detailed installation instructions.
 
 ## Commands
 
@@ -90,6 +95,47 @@ Analyzes repository and appends project-specific rules.
 - Append-only: never overwrites manual sections
 - Git commit: `agentmd: project intelligence update`
 
+## Architecture Foundation
+
+The behavioral philosophy underlying AgentMD is documented in:
+
+**[docs/behavior-foundation.md](docs/behavior-foundation.md)**
+
+This document captures:
+- Core philosophy (hierarchy of control, authority boundaries)
+- Behavioral pillars (tone, anti-slop, documentation-first)
+- Agent identity & autonomy principles
+- Security & visibility doctrine
+- Knowledge architecture
+- Evolution history
+
+## Backward Compatibility
+
+**Migrating from agent-behavior-skill:**
+
+If you previously used `agent-behavior-skill`, migrate as follows:
+
+```bash
+# Remove old skill (optional)
+rm -rf ~/.cursor/skills/agent-behavior
+
+# Install new skill
+git clone https://github.com/BjeSystems/agentmd-skill.git
+cp -r agentmd-skill/skill/* ~/.cursor/skills/agentmd/
+
+# In your project:
+cd /path/to/project-with-old-AGENTS.md
+/AgentCheck   # Updates to new format with project-specific rules
+```
+
+**Key differences:**
+- Old: Static template → New: `/AgentMD` + `/AgentCheck` commands
+- Old: Manual customization → New: Auto-detection and rule synthesis
+- Old: 16 sections → New: 17 sections + AUTO-GENERATED project rules
+
+The old repository is now deprecated and archived:
+https://github.com/BjeSystems/agent-behavior-skill
+
 ## Project Structure
 
 ```
@@ -97,17 +143,19 @@ agentmd-skill/
 ├── skill/
 │   ├── agentmd.skill           # Skill registration
 │   ├── commands/
-│   │   ├── agentmd.command.md      # /AgentMD logic
-│   │   └── agentcheck.command.md   # /AgentCheck logic
+│   │   ├── agentmd.command.md      # /AgentMD implementation
+│   │   └── agentcheck.command.md   # /AgentCheck implementation
 │   ├── templates/
 │   │   └── AGENTS.template.md      # Universal template (17 sections)
 │   ├── analyzers/
 │   │   └── project_scan.md         # Detection algorithms
 │   └── rules/
 │       └── merge_policy.md         # Safe merge rules
-├── README.md                   # This file
-├── INSTALL.md                  # Detailed installation guide
-└── LICENSE                     # MIT License
+├── docs/
+│   └── behavior-foundation.md    # Philosophical foundation
+├── README.md                     # This file
+├── INSTALL.md                    # Detailed installation guide
+└── LICENSE                       # MIT License
 ```
 
 ## Template Sections
