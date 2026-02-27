@@ -1,8 +1,12 @@
-# AgentMD Skill (Canonical Repository)
+# AgentMD Skill (Canonical Repository) ⭐ OFFICIAL INSTALL
 
-> Official bootstrap skill for AGENTS.md environments.
+> **Authority:** Single canonical source for AGENTS.md bootstrap
+> 
+> **Official install target:** `https://github.com/BjeSystems/agentmd-skill`
+> 
+> **Scope:** Universal agent behavior contract system
 
-Universal bootstrap system for agent behavior contracts. Drop-in capability for any repository.
+Universal bootstrap system for AGENTS.md. Drop-in capability for any repository.
 
 ## Overview
 
@@ -19,12 +23,14 @@ AgentMD provides two powerful commands for managing agent behavior in your proje
 - **Safe Merging** — Append-only updates, never overwrites your edits
 - **Git Integrated** — Automatic commits with descriptive messages
 
-## Installation
+## Installation ⭐ OFFICIAL
 
-### Official Method
+**This is the only official installation source.**
+
+### Official Method (Recommended)
 
 ```bash
-# Clone repository
+# Clone official repository
 git clone https://github.com/BjeSystems/agentmd-skill.git
 cd agentmd-skill
 
@@ -36,6 +42,14 @@ cp -r skill/* ~/.cursor/skills/agentmd/
 ls ~/.cursor/skills/agentmd/
 # Output: agentmd.skill  analyzers/  commands/  rules/  templates/
 ```
+
+### Authority Declaration
+
+| Source | Status | Action |
+|--------|--------|--------|
+| `agentmd-skill` (this repo) | ✅ **OFFICIAL** | Install here |
+| `agent-behavior-skill` | ⛔ **ARCHIVED** | DO NOT INSTALL |
+| Any other fork | ⚠️ **Unofficial** | Use at own risk |
 
 ### Use in Any Project
 

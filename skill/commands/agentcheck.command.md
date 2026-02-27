@@ -97,8 +97,12 @@ Agent MUST infer workflow from detected frameworks:
 Agent MUST generate project-specific section:
 
 ```markdown
-<!-- AUTO-GENERATED START -->
+<!-- AUTO-GENERATED START — IMMUTABLE GUARD — DO NOT EDIT MANUALLY -->
 ## Project Rules (Auto-generated)
+
+> This section is automatically maintained by /AgentCheck.
+> Manual edits will be preserved ONLY above this marker.
+> To customize: add rules in manual sections or modify templates/.
 
 Detected stack: Next.js + TypeScript + Prisma + Docker
 
@@ -128,18 +132,25 @@ Detected stack: Next.js + TypeScript + Prisma + Docker
 - Railway/Render for database
 - Environment variables in .env.local (never commit)
 
-<!-- AUTO-GENERATED END -->
+<!-- AUTO-GENERATED END — IMMUTABLE GUARD — DO NOT EDIT MANUALLY -->
 ```
 
-### Stage 5 — Safe Merge
+### Stage 5 — Safe Merge (Immutable Guard)
 
-Agent MUST merge safely:
+Agent MUST merge with absolute safety:
 
+**Immutable Guard Rules:**
 1. Read existing AGENTS.md
-2. Check for `<!-- AUTO-GENERATED START -->` marker
-3. If exists: replace content between START/END
-4. If not exists: append markers with new content at end
-5. Never overwrite manual sections above markers
+2. Locate `<!-- AUTO-GENERATED START — IMMUTABLE GUARD — DO NOT EDIT MANUALLY -->` marker
+3. If exists: replace content between START/END markers ONLY
+4. If not exists: append new section at end with full marker text
+5. NEVER touch content above START marker — this is user territory
+6. NEVER delete or modify START/END marker lines themselves
+
+**Protection Level:**
+- User sections: Sacred, untouchable
+- AUTO-GENERATED sections: Agent-maintained only
+- Markers: Immutable boundaries
 
 **Merge Algorithm:**
 ```bash
