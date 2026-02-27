@@ -1,0 +1,106 @@
+---
+name: agentmd
+version: 1.0.0
+description: Bootstrap and evolve AGENTS.md in any repository with automatic project adaptation
+author: AgentMD Team
+license: MIT
+---
+
+# AgentMD Skill
+
+Universal bootstrap system for agent behavior contracts.
+
+## Available Commands
+
+| Command | File | Purpose |
+|---------|------|---------|
+| `/AgentMD` | `commands/agentmd.command.md` | Create AGENTS.md from template |
+| `/AgentCheck` | `commands/agentcheck.command.md` | Analyze project and update rules |
+
+## Command Registration
+
+```yaml
+commands:
+  - name: /AgentMD
+    trigger: "/AgentMD"
+    file: commands/agentmd.command.md
+    description: Bootstrap AGENTS.md in project root
+
+  - name: /AgentCheck
+    trigger: "/AgentCheck"
+    file: commands/agentcheck.command.md
+    description: Analyze repository and append project-specific rules
+```
+
+## Dependencies
+
+- Template: `templates/AGENTS.template.md`
+- Analyzer: `analyzers/project_scan.md`
+- Rules: `rules/merge_policy.md`
+
+## Usage
+
+### In Any Project
+
+```bash
+# Create AGENTS.md
+/AgentMD
+
+# Update with project-specific rules
+/AgentCheck
+```
+
+### As Cursor Skill
+
+1. Clone this repository
+2. Import skill in Cursor
+3. Commands available in all projects
+
+## Architecture
+
+```
+skill/
+├── agentmd.skill           # This file (registration)
+├── commands/
+│   ├── agentmd.command.md      # /AgentMD implementation
+│   └── agentcheck.command.md   # /AgentCheck implementation
+├── templates/
+│   └── AGENTS.template.md    # Universal template
+├── analyzers/
+│   └── project_scan.md       # Detection algorithms
+└── rules/
+    └── merge_policy.md       # Safe merge rules
+```
+
+## Template Features
+
+Universal AGENTS.template.md includes:
+
+1. **Tone Standards** — Concise communication rules
+2. **Anti-Slop Constraints** — No filler, no tutorial text
+3. **Decision Triggers** — Auto-invoke skills by keywords
+4. **Documentation-First** — Read docs before coding
+5. **Code Documentation** — Create docs after coding
+6. **MCP Context7** — Documentation source
+7. **Done Criteria** — Completion checklist
+8. **Landing Polish** — Quality gates for public output
+9. **External Knowledge** — Allowed/prohibited sources
+10. **Recurring Tasks** — Scheduled maintenance
+11. **Conflict Detection** — Rule override prevention
+12. **Repo Visibility** — Private-by-default stance
+13. **Secrets Detection** — Auto-scan before push
+14. **Agent Autonomy** — Freedom and boundaries
+15. **Identity & Scope** — Role and limitations
+16. **Git Discipline** — 15-min commits + change-based
+17. **Local Checkpoints** — Stash-based recovery
+
+## Safety
+
+- Never modifies workflow files
+- Never overwrites user-written sections
+- Append-only updates via AUTO-GENERATED markers
+- Git commits with descriptive messages
+
+## License
+
+MIT — See LICENSE file
