@@ -270,13 +270,13 @@ For continuous protection beyond git commits:
 
 ---
 
-<!-- AUTO-GENERATED START -->
+<!-- AUTO-GENERATED START — IMMUTABLE GUARD — DO NOT EDIT MANUALLY -->
 ## Project Rules (Auto-generated)
 
-This section is automatically updated by /AgentCheck command.
-Project-specific rules are appended here based on codebase analysis.
+> This section is automatically maintained by /AgentCheck.
+> Manual edits will be overwritten. Add custom rules in manual sections above.
 
-<!-- AUTO-GENERATED END -->
+<!-- AUTO-GENERATED END — IMMUTABLE GUARD — DO NOT EDIT MANUALLY -->
 
 ---
 
